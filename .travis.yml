@@ -12,4 +12,5 @@ script:
     - travis_retry ./push_and_trigger.sh \
         cyber-dojo/runner-stateless \
         cyber-dojo/runner-stateful
+        # cyber-dojo/commander is triggered from runner-stateless's chain
 
