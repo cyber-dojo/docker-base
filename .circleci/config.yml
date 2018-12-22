@@ -13,10 +13,9 @@ jobs:
           name: build docker-base docker image and push to docker hub
           command: |
             set -e
-            echo "${DOCKER_PASS}" \
-              | docker login -u "${DOCKER_USER}" --password-stdin
+            echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
             ./pipe_build_up_test.sh
-            readonly project=docker-base
+            readonly project=${CIRCLE_PROJECT_REPONAME}
             docker tag  cyberdojo/${project}:latest cyberdojo/${project}:${CIRCLE_SHA1:0:7}
             docker tag  cyberdojo/${project}:latest cyberdojo/${project}:beta
             docker push cyberdojo/${project}:${CIRCLE_SHA1:0:7}
