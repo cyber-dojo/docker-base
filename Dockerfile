@@ -16,8 +16,8 @@ RUN apk --update --upgrade --no-cache add \
 # install ruby gems
 # - - - - - - - - - - - - - - - -
 
-COPY Gemfile /app/
 WORKDIR /app
+COPY Gemfile .
 
 RUN apk --update --upgrade add --virtual build-dependencies build-base \
   && bundle config --global silence_root_warning 1 \
