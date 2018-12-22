@@ -1,4 +1,4 @@
-FROM  docker:latest
+FROM docker:latest
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
@@ -16,9 +16,8 @@ RUN apk --update --no-cache add \
 # install ruby gems
 # - - - - - - - - - - - - - - - -
 
-ARG            APP_HOME=/app
-COPY Gemfile ${APP_HOME}/
-WORKDIR      ${APP_HOME}
+COPY Gemfile /app/
+WORKDIR /app
 
 RUN apk --update add --virtual build-dependencies build-base \
   && bundle config --global silence_root_warning 1 \
