@@ -31,10 +31,8 @@ jobs:
             set -ev
             ./sh/trigger_dependent_repos.sh "${CIRCLE_SHA1:0:7}" \
                https://github.com/cyber-dojo/inserter.git \
-               https://github.com/cyber-dojo/commander.git
-            #
-            #   https://github.com/cyber-dojo/runner.git \
-            #
+               https://github.com/cyber-dojo/commander.git \
+               https://github.com/cyber-dojo/runner.git
 
 workflows:
   version: 2
