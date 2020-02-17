@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'json'
+gem 'prometheus-client'
+gem 'puma'
 gem 'rack'
 gem 'thin'
 
-gem 'prometheus-client'
-gem 'simplecov'
+gem 'coveralls'
 gem 'minitest'
+gem 'ruby-prof'
+gem 'simplecov', "0.17.0"
