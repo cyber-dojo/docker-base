@@ -4,13 +4,15 @@ LABEL maintainer=jon@jaggersoft.com
 # - - - - - - - - - - - - - - - -
 # install ruby+
 # tar is needed to tar-pipe test coverage out of tmpfs.
+# tini is needed for pid-1 zombie reaping
 # - - - - - - - - - - - - - - - -
 
 RUN apk --update --upgrade --no-cache add \
     bash \
     ruby-bundler \
     ruby-dev \
-    tar
+    tar \
+    tini
 
 # - - - - - - - - - - - - - - - -
 # install ruby gems
