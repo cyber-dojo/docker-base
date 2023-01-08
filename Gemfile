@@ -9,4 +9,4 @@ gem 'thin'
 gem 'coveralls'
 gem 'minitest'
 gem 'ruby-prof'
-gem 'simplecov', "0.19.1"
+gem 'simplecov'

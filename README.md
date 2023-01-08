@@ -1,10 +1,8 @@
 
-[![CircleCI](https://circleci.com/gh/cyber-dojo/docker-base.svg?style=svg)](https://circleci.com/gh/cyber-dojo/docker-base)
+# docker-base
 
 The base image for
-[commander](https://github.com/cyber-dojo/commander),
-[ragger](https://github.com/cyber-dojo/ragger), and
-[runner](https://github.com/cyber-dojo/runner).
-Helps speeds up builds.
+- [commander](https://github.com/cyber-dojo/commander),
+- [runner](https://github.com/cyber-dojo/runner).
 
 ![cyber-dojo.org home page](https://github.com/cyber-dojo/cyber-dojo/blob/master/shared/home_page_snapshot.png)
