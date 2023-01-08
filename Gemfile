@@ -8,5 +8,6 @@ gem 'thin'
 
 gem 'coveralls'
 gem 'minitest'
+gem 'minitest-ci'
 gem 'ruby-prof'
 gem 'simplecov'
