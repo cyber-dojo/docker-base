@@ -28,5 +28,8 @@ RUN apk --update --upgrade add --virtual build-dependencies build-base \
   && apk del build-dependencies build-base \
   && rm -vrf /var/cache/apk/*
 
+# Install util-linux to use script to allow ECS exec logging
+RUN apk add util-linux
+
 ARG COMMIT_SHA
 ENV SHA=${COMMIT_SHA}
