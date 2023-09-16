@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -Eeu
 
+export KOSLI_FLOW=docker-base
+
 # KOSLI_ORG is set in CI
 # KOSLI_API_TOKEN is set in CI
-# KOSLI_FLOW is set in CI
 # KOSLI_HOST_STAGING is set in CI
 # KOSLI_HOST_PRODUCTION is set in CI
+# SNYK_TOKEN is set in CI
 
 # - - - - - - - - - - - - - - - - - - -
 kosli_create_flow()
@@ -13,10 +15,10 @@ kosli_create_flow()
   local -r hostname="${1}"
 
   kosli create flow "${KOSLI_FLOW}" \
-    --description "Docker base image" \
-    --host "${hostname}" \
-    --template artifact,snyk-scan \
-    --visibility public
+    --description="Docker base image" \
+    --host="${hostname}" \
+    --template=artifact,snyk-scan \
+    --visibility=public
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -25,9 +27,9 @@ kosli_report_artifact_creation()
   local -r hostname="${1}"
 
   kosli report artifact "$(artifact_name)" \
-      --artifact-type docker \
-      --host "${hostname}" \
-      --repo-root "${REPO_ROOT}"
+      --artifact-type=docker \
+      --host="${hostname}" \
+      --repo-root="${REPO_ROOT}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -36,10 +38,10 @@ kosli_report_snyk_evidence()
   local -r hostname="${1}"
 
   kosli report evidence artifact snyk "$(artifact_name)" \
-      --artifact-type docker \
-      --host "${hostname}" \
-      --name snyk-scan \
-      --scan-results snyk.json
+      --artifact-type=docker \
+      --host="${hostname}" \
+      --name=snyk-scan \
+      --scan-results="$(repo_root)/snyk.json"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -48,8 +50,8 @@ kosli_assert_artifact()
   local -r hostname="${1}"
 
   kosli assert artifact "$(artifact_name)" \
-      --artifact-type docker \
-      --host "${hostname}"
+      --artifact-type=docker \
+      --host="${hostname}"
 }
 
 # - - - - - - - - - - - - - - - - - - -
@@ -80,10 +82,11 @@ on_ci_kosli_report_artifact()
 on_ci_kosli_report_snyk_evidence()
 {
   if on_ci; then
+    set +e
     snyk container test "$(artifact_name)" \
-      --file="${REPO_ROOT}/app/Dockerfile" \
-      --json-file-output=snyk.json \
-      --policy-path=.snyk
+      --json-file-output="$(repo_root)/snyk.json" \
+      --policy-path="$(repo_root)/.snyk"
+    set -e
 
     kosli_report_snyk_evidence "${KOSLI_HOST_STAGING}"
     kosli_report_snyk_evidence "${KOSLI_HOST_PRODUCTION}"
@@ -99,5 +102,10 @@ on_ci_kosli_assert_artifact()
   fi
 }
 
+# - - - - - - - - - - - - - - - - - - -
+repo_root()
+{
+  git rev-parse --show-toplevel
+}
 
 
