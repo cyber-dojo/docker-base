@@ -1,10 +1,12 @@
-FROM docker:latest
+ARG BASE_IMAGE=docker:24.0.6-alpine3.18
+FROM ${BASE_IMAGE}
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
 # install ruby+
 # tar is needed to tar-pipe test coverage out of tmpfs.
 # tini is needed for pid-1 zombie reaping
+# Install util-linux to use `script` to allow ECS exec logging
 # - - - - - - - - - - - - - - - -
 
 RUN apk --update --upgrade --no-cache add \
@@ -12,7 +14,8 @@ RUN apk --update --upgrade --no-cache add \
     ruby-bundler \
     ruby-dev \
     tar \
-    tini
+    tini \
+    util-linux
 
 # - - - - - - - - - - - - - - - -
 # install ruby gems
@@ -28,8 +31,10 @@ RUN apk --update --upgrade add --virtual build-dependencies build-base \
   && apk del build-dependencies build-base \
   && rm -vrf /var/cache/apk/*
 
-# Install util-linux to use script to allow ECS exec logging
-RUN apk add util-linux
-
 ARG COMMIT_SHA
 ENV SHA=${COMMIT_SHA}
+ENV COMMIT_SHA=${COMMIT_SHA}
+
+# ARGs are reset after FROM See https://github.com/moby/moby/issues/34129
+ARG BASE_IMAGE
+ENV BASE_IMAGE=${BASE_IMAGE}
