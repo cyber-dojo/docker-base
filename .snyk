@@ -42,7 +42,17 @@ ignore:
         reason: Waiting for base image upgrade
         expires: 2024-03-01T15:48:22.212Z
         created: 2024-01-12T15:48:22.228Z
+  SNYK-ALPINE319-OPENSSH-6131646:
+    - '*':
+        reason: Waiting for base image upgrade
+        expires: 2024-03-01T15:48:22.212Z
+        created: 2024-01-12T15:48:22.228Z
   SNYK-ALPINE318-OPENSSL-6152404:
+    - '*':
+        reason: Waiting for base image upgrade
+        expires: 2024-03-01T15:48:22.212Z
+        created: 2024-01-12T15:48:22.228Z
+  SNYK-ALPINE319-OPENSSL-6159994:
     - '*':
         reason: Waiting for base image upgrade
         expires: 2024-03-01T15:48:22.212Z

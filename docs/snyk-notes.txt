@@ -1,0 +1,13 @@
+
+If you want to check a locally created docker image, eg
+cyberdojo/docker-base:110bc33
+the command to use is:
+
+snyk container test cyberdojo/docker-base:110bc33 --file=Dockerfile --policy-path=.snyk
+
+Note that it is NOT:
+
+snyk container test cyberdojo/docker-base:110bc33 --file=Dockerfile --policy-file=.snyk
+
+which will _silently_ ignore an unknown flag.
+That's 30 minutes of my life gone right there.
