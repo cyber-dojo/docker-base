@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=docker:24.0.7-alpine3.19
+ARG BASE_IMAGE=docker:24.0.9-alpine3.19
 FROM ${BASE_IMAGE}
 LABEL maintainer=jon@jaggersoft.com
 
