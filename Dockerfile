@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=docker:26.1.3-alpine3.19
+ARG BASE_IMAGE=docker:27.0.3-dind-alpine3.20
 FROM ${BASE_IMAGE}
 LABEL maintainer=jon@jaggersoft.com
 
@@ -16,9 +16,6 @@ RUN apk --update --upgrade --no-cache add \
     tar \
     tini \
     util-linux
-
-RUN apk add busybox=1.36.1-r19 # https://security.snyk.io/vuln/SNYK-ALPINE319-BUSYBOX-6928846
-RUN apk add openssl=3.1.5-r0   # https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6928853
 
 WORKDIR /app
 COPY Gemfile .
