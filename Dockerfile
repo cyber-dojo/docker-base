@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=docker:27.0.3-dind-alpine3.20
+ARG BASE_IMAGE=docker:27.3.1-dind-alpine3.20
 FROM ${BASE_IMAGE}
 LABEL maintainer=jon@jaggersoft.com
 
@@ -16,6 +16,9 @@ RUN apk --update --upgrade --no-cache add \
     tar \
     tini \
     util-linux
+
+RUN apk add libcurl=8.10.1-r0  # https://security.snyk.io/vuln/SNYK-ALPINE320-CURL-7931858
+RUN apk add grpc               # https://security.snyk.io/vuln/SNYK-GOLANG-GITHUBCOMOPENCONTAINERSRUNCLIBCONTAINERUTILS-7856945
 
 WORKDIR /app
 COPY Gemfile .
