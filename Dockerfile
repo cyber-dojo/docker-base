@@ -1,5 +1,4 @@
-ARG BASE_IMAGE=docker:27.3.1-dind-alpine3.20
-FROM ${BASE_IMAGE}
+FROM docker:27.3.1-dind-alpine3.20
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
@@ -17,6 +16,7 @@ RUN apk --update --upgrade --no-cache add \
     tini \
     util-linux
 
+RUN apk add openssl=3.3.2-r1   # https://security.snyk.io/vuln/SNYK-ALPINE320-OPENSSL-8235201
 RUN apk add libcurl=8.10.1-r0  # https://security.snyk.io/vuln/SNYK-ALPINE320-CURL-7931858
 RUN apk add grpc               # https://security.snyk.io/vuln/SNYK-GOLANG-GITHUBCOMOPENCONTAINERSRUNCLIBCONTAINERUTILS-7856945
 
@@ -32,7 +32,3 @@ RUN apk --update --upgrade add --virtual build-dependencies build-base \
 
 ARG COMMIT_SHA
 ENV SHA=${COMMIT_SHA}
-
-# ARGs are reset after FROM See https://github.com/moby/moby/issues/34129
-ARG BASE_IMAGE
-ENV BASE_IMAGE=${BASE_IMAGE}
