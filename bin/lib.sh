@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -Eeu
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 build_image()
 {
   docker build \
@@ -12,32 +11,27 @@ build_image()
   assert_equal SHA "$(git_commit_sha)" "$(image_sha)"
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 git_commit_sha()
 {
-  echo $(cd "${REPO_ROOT}" && git rev-parse HEAD)
+  cd "${REPO_ROOT}" && git rev-parse HEAD
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 image_name()
 {
   echo cyberdojo/docker-base
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 image_sha()
 {
   docker run --rm $(image_name):latest sh -c 'echo ${SHA}'
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 image_tag()
 {
   local -r sha="$(git_commit_sha)"
   echo "${sha:0:7}"
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 tag_image()
 {
   local -r image="$(image_name)"
@@ -47,7 +41,6 @@ tag_image()
   echo "${tag}"
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 on_ci_publish_tagged_image()
 {
   if ! on_ci; then
@@ -63,13 +56,11 @@ on_ci_publish_tagged_image()
   fi
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 on_ci()
 {
   [ "${CI:-}" == true ]
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - -
 assert_equal()
 {
   local -r name="${1}"
