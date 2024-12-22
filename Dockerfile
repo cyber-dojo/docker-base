@@ -1,4 +1,4 @@
-FROM docker:27.3.1-dind-alpine3.20
+FROM docker:27.4.1-dind-alpine3.21
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
@@ -16,7 +16,7 @@ RUN apk --update --upgrade --no-cache add \
     tini \
     util-linux
 
-RUN apk add openssl=3.3.2-r1   # https://security.snyk.io/vuln/SNYK-ALPINE320-OPENSSL-8235201
+RUN apk add openssl=3.3.2-r4   # https://security.snyk.io/vuln/SNYK-ALPINE320-OPENSSL-8235201
 RUN apk add libcurl=8.11.1-r0  # https://security.snyk.io/vuln/SNYK-ALPINE320-CURL-8499545
 RUN apk add libexpat=2.6.4-r0  # https://security.snyk.io/vuln/SNYK-ALPINE320-EXPAT-8359601
 RUN apk add grpc               # https://security.snyk.io/vuln/SNYK-GOLANG-GITHUBCOMOPENCONTAINERSRUNCLIBCONTAINERUTILS-7856945
