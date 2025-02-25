@@ -49,10 +49,8 @@ on_ci_publish_tagged_image()
     echo 'on CI so publishing tagged image'
     local -r image="$(image_name)"
     local -r tag="$(image_tag)"
-    echo "${DOCKER_PASS}" | docker login --username "${DOCKER_USER}" --password-stdin
     docker push ${image}:latest
     docker push ${image}:${tag}
-    docker logout
   fi
 }
 

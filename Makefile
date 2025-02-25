@@ -9,8 +9,7 @@ image:
 
 snyk-container-scan: image
 	snyk container test ${IMAGE_NAME} \
-        --file=Dockerfile \
+        --policy-path=.snyk \
 		--sarif \
 		--sarif-file-output=snyk.container.scan.json \
-        --policy-path=.snyk
 

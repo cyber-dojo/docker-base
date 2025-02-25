@@ -1,4 +1,4 @@
-name: Build Image and Publish to Dockerhub
+name: Main
 
 on:
   push:
@@ -6,21 +6,19 @@ on:
       - main
 
 jobs:
-  pre-build:
+  build-test-publish:
     runs-on: ubuntu-latest
+    needs: []
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-  build-test-push:
-    needs: [pre-build]
-    uses: cyber-dojo/reusable-actions-workflows/.github/workflows/kosli_build_test.yml@v0.0.6
-    secrets:
-      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_TOKEN }}
-      KOSLI_API_TOKEN_STAGING: ${{ secrets.KOSLI_API_TOKEN_STAGING }}
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-    with:
-      BUILD_COMMAND: build_test_publish.sh
-      KOSLI_FLOW: docker-base
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
 
+      - name: Build Test Publish
+        run:
+          ./build_test_publish.sh
