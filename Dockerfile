@@ -12,10 +12,11 @@ LABEL maintainer=jon@jaggersoft.com
 RUN apk --update --upgrade --no-cache add \
     bash \
     ruby-bundler \
-    ruby-dev \
     tar \
     tini \
     util-linux
+
+RUN apk add --upgrade ruby-dev=3.3.8-r0  # https://security.snyk.io/vuln/SNYK-ALPINE321-RUBY-9802138
 
 WORKDIR /app
 COPY Gemfile .
