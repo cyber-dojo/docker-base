@@ -5,7 +5,7 @@ IMAGE_NAME := cyberdojo/docker-base:${SHORT_SHA}
 .PHONY: image snyk-container
 
 image:
-	${PWD}/build_test_publish.sh
+	${PWD}/bin/build_image.sh
 
 snyk-container-scan: image
 	snyk container test ${IMAGE_NAME} \

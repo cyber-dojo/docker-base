@@ -1,0 +1,12 @@
+
+In main.yml we have
+
+    strategy:
+      matrix:
+        repo: [ runner ]
+
+Once commander has its Dockerfile in the root of its repo this can become
+
+    strategy:
+      matrix:
+        repo: [ commander, runner ]
