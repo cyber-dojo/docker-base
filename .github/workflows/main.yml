@@ -134,7 +134,7 @@ jobs:
       BRANCH_NAME: ${{ needs.setup.outputs.branch_name }}
     strategy:
       matrix:
-        repo: [ runner ]
+        repo: [ commander ]
     steps:
       - uses: actions/checkout@v4
         with:
