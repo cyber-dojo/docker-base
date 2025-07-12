@@ -2,3 +2,11 @@
 # If this file contains only comments, then no vulnerabilities are ignored
 # but do not delete this file - it is needed for the live-snyk-scans repo workflows.
 
+ignore:
+  SNYK-GOLANG-GITHUBCOMGOVIPERMAPSTRUCTUREV2-10558294:
+    - '*':
+        reason: Waiting for base image upgrade
+        expires: 2025-08-12T10:53:10.182Z
+        created: 2025-07-12T10:53:10.201Z
+
+patch: {}
