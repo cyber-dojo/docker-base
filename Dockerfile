@@ -12,7 +12,9 @@ LABEL maintainer=jon@jaggersoft.com
 
 RUN apk --update --upgrade --no-cache add \
     bash \
+    git \
     ruby-bundler \
+    ruby-dev \
     tar \
     tini \
     util-linux
