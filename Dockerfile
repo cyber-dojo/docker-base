@@ -1,4 +1,5 @@
-FROM docker:28.1.1-dind-alpine3.21
+#FROM docker:28.1.1-dind-alpine3.21
+FROM docker:29.0.2-dind-alpine3.22
 
 LABEL maintainer=jon@jaggersoft.com
 
@@ -16,8 +17,8 @@ RUN apk --update --upgrade --no-cache add \
     tini \
     util-linux
 
-RUN apk add --upgrade ruby-dev=3.3.8-r0  # https://security.snyk.io/vuln/SNYK-ALPINE321-RUBY-9802138
-RUN apk add --upgrade git=2.47.3-r0      # https://security.snyk.io/vuln/SNYK-ALPINE320-GIT-10669667
+#RUN apk add --upgrade ruby-dev=3.3.8-r0  # https://security.snyk.io/vuln/SNYK-ALPINE321-RUBY-9802138
+#RUN apk add --upgrade git=2.47.3-r0      # https://security.snyk.io/vuln/SNYK-ALPINE320-GIT-10669667
 
 WORKDIR /app
 COPY Gemfile .
