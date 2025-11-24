@@ -18,7 +18,6 @@ RUN apk --update --upgrade --no-cache add \
     tini \
     util-linux
 
-RUN git version
 #RUN apk add --upgrade ruby-dev=3.3.10-r0  # https://security.snyk.io/vuln/SNYK-ALPINE321-RUBY-9802138
 #RUN apk add --upgrade git=2.47.3-r0      # https://security.snyk.io/vuln/SNYK-ALPINE320-GIT-10669667
 
