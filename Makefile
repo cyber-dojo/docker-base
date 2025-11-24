@@ -7,7 +7,7 @@ IMAGE_NAME := cyberdojo/docker-base:${SHORT_SHA}
 image:
 	${PWD}/bin/build_image.sh
 
-snyk-container-scan: image
+snyk-container-scan:
 	snyk container test ${IMAGE_NAME} \
         --policy-path=.snyk \
 		--sarif \
