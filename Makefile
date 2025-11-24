@@ -8,7 +8,7 @@ image:
 	${PWD}/bin/build_image.sh
 
 snyk-container-scan:
-	snyk container test ${IMAGE_NAME} -d \
+	snyk container test ${IMAGE_NAME} \
         --policy-path=.snyk \
 		--sarif \
 		--sarif-file-output=snyk.container.scan.json \
