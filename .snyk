@@ -6,26 +6,26 @@ version: v1.25.0
 
 patch: {}
 
-ignore:
-  SNYK-GOLANG-GITHUBCOMOPENCONTAINERSSELINUXGOSELINUX-13843568:
+ignore:  
+  SNYK-GOLANG-GITHUBCOMOPENCONTAINERSSELINUXGOSELINUX-13843568: # High
     - '*':
       reason: Waiting for base image upgrade
       expires: 2025-12-24T10:53:10.182Z
       created: 2025-11-24T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-12668891:
+  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-12668891: # High
     - '*':
       reason: Waiting for base image upgrade
       expires: 2025-12-24T10:53:10.182Z
       created: 2025-11-24T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-14059804:
+  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-14059804: # Medium
     - '*':
       reason: Waiting for base image upgrade
       expires: 2025-12-24T10:53:10.182Z
       created: 2025-11-24T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSH-14059803:
+  SNYK-GOLANG-GOLANGORGXCRYPTOSSH-14059803: # Medium
     - '*':
       reason: Waiting for base image upgrade
       expires: 2025-12-24T10:53:10.182Z
