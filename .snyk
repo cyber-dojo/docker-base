@@ -7,26 +7,26 @@ version: v1.25.0
 patch: {}
 
 ignore:  
-  SNYK-GOLANG-GITHUBCOMOPENCONTAINERSSELINUXGOSELINUX-13843568: # High
+  SNYK-GOLANG-GOOPENTELEMETRYIOOTELSDKRESOURCE-15182758: # High
     - '*':
       reason: Waiting for base image upgrade
-      expires: 2025-12-24T10:53:10.182Z
-      created: 2025-11-24T10:53:10.201Z
+      expires: 2026-03-09T10:53:10.182Z
+      created: 2026-02-09T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-12668891: # High
+  SNYK-GOLANG-GITHUBCOMSIGSTOREREKORPKGTYPESDSSEV001-15064025: # High
     - '*':
       reason: Waiting for base image upgrade
-      expires: 2025-12-24T10:53:10.182Z
-      created: 2025-11-24T10:53:10.201Z
+      expires: 2026-03-09T10:53:10.182Z
+      created: 2026-02-09T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSHAGENT-14059804: # Medium
+  SNYK-GOLANG-GITHUBCOMTHEUPDATEFRAMEWORKGOTUFV2METADATA-15054286: # High
     - '*':
       reason: Waiting for base image upgrade
-      expires: 2025-12-24T10:53:10.182Z
-      created: 2025-11-24T10:53:10.201Z
+      expires: 2026-03-09T10:53:10.182Z
+      created: 2026-02-09T10:53:10.201Z
 
-  SNYK-GOLANG-GOLANGORGXCRYPTOSSH-14059803: # Medium
+  SNYK-GOLANG-GITHUBCOMTHEUPDATEFRAMEWORKGOTUFV2METADATA-15054288: # High
     - '*':
       reason: Waiting for base image upgrade
-      expires: 2025-12-24T10:53:10.182Z
-      created: 2025-11-24T10:53:10.201Z
+      expires: 2026-03-09T10:53:10.182Z
+      created: 2026-02-09T10:53:10.201Z

@@ -17,6 +17,8 @@ RUN apk --update --upgrade --no-cache add \
     tini \
     util-linux
 
+RUN apk add --upgrade expat=2.7.4-r0    # https://security.snyk.io/vuln/SNYK-ALPINE321-EXPAT-15199474
+
 WORKDIR /app
 COPY Gemfile .
 
