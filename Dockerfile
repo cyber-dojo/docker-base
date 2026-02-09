@@ -1,4 +1,4 @@
-FROM docker:29.0.1-dind-alpine3.22
+FROM docker:29.2.1-dind-alpine3.23
 
 LABEL maintainer=jon@jaggersoft.com
 
