@@ -7,26 +7,39 @@ version: v1.25.0
 patch: {}
 
 ignore:  
-  SNYK-GOLANG-GOOPENTELEMETRYIOOTELSDKRESOURCE-15182758: # High
+  SNYK-GOLANG-GOOPENTELEMETRYIOOTELSDKRESOURCE-15182758:
     - '*':
-      reason: Waiting for base image upgrade
-      expires: 2026-03-09T10:53:10.182Z
-      created: 2026-02-09T10:53:10.201Z
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
 
-  SNYK-GOLANG-GITHUBCOMSIGSTOREREKORPKGTYPESDSSEV001-15064025: # High
+  SNYK-GOLANG-GOOGLEGOLANGORGGRPC-15691172:
     - '*':
-      reason: Waiting for base image upgrade
-      expires: 2026-03-09T10:53:10.182Z
-      created: 2026-02-09T10:53:10.201Z
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
 
-  SNYK-GOLANG-GITHUBCOMTHEUPDATEFRAMEWORKGOTUFV2METADATA-15054286: # High
+  SNYK-GOLANG-GITHUBCOMMOBYBUILDKITUTILGITUTIL-15790744:
     - '*':
-      reason: Waiting for base image upgrade
-      expires: 2026-03-09T10:53:10.182Z
-      created: 2026-02-09T10:53:10.201Z
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
 
-  SNYK-GOLANG-GITHUBCOMTHEUPDATEFRAMEWORKGOTUFV2METADATA-15054288: # High
+  SNYK-GOLANG-GITHUBCOMMOBYBUILDKITCLIENTLLB-15790742:
     - '*':
-      reason: Waiting for base image upgrade
-      expires: 2026-03-09T10:53:10.182Z
-      created: 2026-02-09T10:53:10.201Z
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
+
+  SNYK-GOLANG-GITHUBCOMGOJOSEGOJOSEV4CIPHER-15875224:
+    - '*':
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
+
+  SNYK-GOLANG-GITHUBCOMGOJOSEGOJOSEV4-15875221:
+    - '*':
+        reason: Waiting for fix
+        expires: 2026-05-09T10:53:10.182Z
+        created: 2026-04-09T10:53:10.201Z
+
