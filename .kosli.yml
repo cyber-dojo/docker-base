@@ -1,0 +1,8 @@
+version: 1
+
+trail:
+  artifacts:
+    - name: docker-base
+      attestations:
+        - name: snyk-container-scan
+          type: generic
