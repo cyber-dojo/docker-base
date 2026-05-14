@@ -205,7 +205,7 @@ jobs:
           BASE_IMAGE: cyberdojo/docker-base:${{ needs.setup.outputs.image_tag }}@sha256:${{ needs.push-image.outputs.digest }}
         run: |
           cp Dockerfile Dockerfile.original
-          echo "FROM ${BASE_IMAGE}" > Dockerfile
+          echo "FROM ${BASE_IMAGE} AS base" > Dockerfile
           cat Dockerfile.original | tail -n+2 >> Dockerfile
           rm Dockerfile.original
 
