@@ -125,6 +125,7 @@ jobs:
       KOSLI_FINGERPRINT: ${{ needs.push-image.outputs.digest }}
     steps:
       - uses: cyber-dojo/harden-runner@main
+      - uses: cyber-dojo/pinned-checkout@main
       - uses: cyber-dojo/setup-kosli-cli@main
       - run:
           kosli attest artifact ${IMAGE_NAME}
