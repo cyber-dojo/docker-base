@@ -89,6 +89,7 @@ jobs:
       contents: write
     steps:
       - uses: cyber-dojo/harden-runner@main
+      - uses: cyber-dojo/setup-kosli-cli@main
 
       - name: Retrieve Docker image from cache
         uses: actions/cache@v5
