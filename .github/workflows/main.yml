@@ -129,17 +129,17 @@ jobs:
           kosli attest artifact ${IMAGE_NAME}
 
 
-    snyk-container-scan:
-      needs: [ setup, attest-image]
-      uses: cyber-dojo/snyk-scanning/.github/workflows/artifact_snyk_test.yml@main
-      with:
-        artifact_name:          ${{ needs.setup.outputs.image_name }}
-        kosli_flow:             ${{ needs.setup.outputs.kosli_flow }}
-        kosli_trail:            ${{ needs.setup.outputs.kosli_trail }}
-        kosli_attestation_name: docker-base.snyk-container-scan
-      secrets:
-        snyk_token:      ${{ secrets.SNYK_TOKEN }}
-        kosli_api_token: ${{ secrets.KOSLI_API_TOKEN }}
+  snyk-container-scan:
+    needs: [ setup, attest-image]
+    uses: cyber-dojo/snyk-scanning/.github/workflows/artifact_snyk_test.yml@main
+    with:
+      artifact_name:          ${{ needs.setup.outputs.image_name }}
+      kosli_flow:             ${{ needs.setup.outputs.kosli_flow }}
+      kosli_trail:            ${{ needs.setup.outputs.kosli_trail }}
+      kosli_attestation_name: docker-base.snyk-container-scan
+    secrets:
+      snyk_token:      ${{ secrets.SNYK_TOKEN }}
+      kosli_api_token: ${{ secrets.KOSLI_API_TOKEN }}
 
 
   sdlc-control-gate:
