@@ -147,7 +147,7 @@ jobs:
 
   sdlc-control-gate:
     runs-on: ubuntu-latest
-    needs: [attest-image, snyk-container-scan]
+    needs: [push-image, snyk-container-scan]
     steps:
       - uses: cyber-dojo/harden-runner@main
       - uses: cyber-dojo/setup-kosli-cli@main
