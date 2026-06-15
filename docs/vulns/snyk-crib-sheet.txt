@@ -1,0 +1,11 @@
+
+To run snyk test against a locally-built docker-base image
+
+$ snyk container test cyberdojo/docker-base:$(git rev-parse HEAD | cut -c1-7) --file=Dockerfile --policy-path=.snyk
+
+Note it is --policy-path (not --policy-file, which is silently ignored).
+See docs/snyk-notes.txt.
+
+To create an ignore entry in .snyk file
+
+$ snyk ignore --id=SNYK-XXXXXXXXXXXX
