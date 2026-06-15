@@ -173,7 +173,14 @@ jobs:
         repo: [ commander, runner ]
     steps:
       - uses: cyber-dojo/harden-runner@main
-      - uses: cyber-dojo/pinned-checkout@main
+
+      # This action must check out the downstream repo (not docker-base)
+      # and push with a cross-repo token. 
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: cyber-dojo/${{ matrix.repo }}
+          token: ${{ secrets.BASE_IMAGE_UPGRADE }}
+          fetch-depth: 0
 
       - name: Create branch
         run:
