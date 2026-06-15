@@ -1,4 +1,4 @@
-FROM docker:29.5.3-dind-alpine3.24@sha256:ad68e89b675740867a3bb96488a93fea9209ad36c6305bfba2664912d6dcf11a
+FROM cyberdojo/docker-base:d1001bc@sha256:ebcde41584786afbed606f128533f5905c4f7f8daad9db2364854505e583ecdd AS base
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
