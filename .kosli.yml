@@ -5,4 +5,4 @@ trail:
     - name: docker-base
       attestations:
         - name: snyk-container-scan
-          type: generic
+          type: decision
