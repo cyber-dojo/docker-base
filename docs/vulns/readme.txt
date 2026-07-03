@@ -39,6 +39,8 @@ CVE-2026-33814         golang.org/x/net/http2   8.7   No   --net=none; can't sen
 CVE-2026-46597         x/crypto/ssh             8.7   No   --net=none; no SSH server exposed
 CVE-2026-39835         x/crypto/ssh             8.7   No   --net=none; no SSH server exposed
 CVE-2026-46598         x/crypto/ssh/agent       8.7   No   --net=none; no SSH agent exposed
+CVE-2026-53488         containerd v2 client/lbl 8.7   No   no CRI plugin in use; users cannot supply images; only trusted pre-built images run
+CVE-2026-48702         sigstore/rekor pkg/types 8.7   No   no Rekor server run; server-side unmarshal path never reached; DoS only
 CVE-2026-39831         x/crypto/ssh             8.6   No   --net=none; client-side; no outbound SSH
 CloudWatch-16316406    aws-sdk-go-v2 CloudWatch 8.2   No   --net=none; DoS only; requires MITM of TLS
 CVE-2026-24051         OTel SDK resource        7.3   No   macOS-only (ioreg)
