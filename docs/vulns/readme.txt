@@ -1,5 +1,5 @@
-CVE Assessment: cyberdojo/docker-base (FROM docker:29.5.3-dind-alpine3.24) for cyber-dojo
-Generated: 2026-06-15
+CVE Assessment: cyberdojo/docker-base (FROM docker:29.7.2-dind-alpine3.24) for cyber-dojo
+Generated: 2026-08-22
 
 Each vulnerability has its own file in this directory named after its CVE or Snyk ID.
 
@@ -11,8 +11,8 @@ cyber-dojo service images are built FROM. The two downstream consumers are:
   - commander (a second consumer, assessed separately)
 
 Every vulnerability below is a Go CVE in the docker/dind toolchain binaries
-(dockerd, docker-compose, docker-buildx) shipped inside the base image, not in
-any cyber-dojo application code. A vulnerability in docker-base is therefore only
+(dockerd, containerd, ctr, docker-compose, docker-buildx) shipped inside the
+base image, not in any cyber-dojo application code. A vulnerability in docker-base is therefore only
 "genuine" if it is exploitable in a deployed downstream image. The assessment
 below is the runner consumer's threat model; commander is tracked separately.
 
@@ -42,10 +42,9 @@ CVE-2026-46598         x/crypto/ssh/agent       8.7   No   --net=none; no SSH ag
 CVE-2026-53488         containerd v2 client/lbl 8.7   No   no CRI plugin in use; users cannot supply images; only trusted pre-built images run
 CVE-2026-48702         sigstore/rekor pkg/types 8.7   No   no Rekor server run; server-side unmarshal path never reached; DoS only
 CVE-2026-39831         x/crypto/ssh             8.6   No   --net=none; client-side; no outbound SSH
-CloudWatch-16316406    aws-sdk-go-v2 CloudWatch 8.2   No   --net=none; DoS only; requires MITM of TLS
 CVE-2026-24051         OTel SDK resource        7.3   No   macOS-only (ioreg)
 CVE-2026-39827         x/crypto/ssh             7.1   No   --net=none; no SSH server exposed
-CVE-2026-41178         OTel baggage/propagation 6.9   No   Docker toolchain only; dockerd Unix socket; CLI tools, no inbound HTTP
+CVE-2026-41178         OTel baggage/propagation 6.9   No   only containerd/ctr still on otel v1.43.0; containerd API is a local Unix socket; ctr is a CLI
 CVE-2026-39829         x/crypto/ssh             6.9   No   --net=none; no SSH server exposed
 CVE-2026-39834         x/crypto/ssh             6.9   No   --net=none; no SSH server exposed
 CVE-2026-39830         x/crypto/ssh             6.9   No   --net=none; no SSH server exposed
