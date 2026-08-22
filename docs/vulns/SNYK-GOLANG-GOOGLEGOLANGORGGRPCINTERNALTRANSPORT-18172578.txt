@@ -1,0 +1,15 @@
+SNYK-GOLANG-GOOGLEGOLANGORGGRPCINTERNALTRANSPORT-18172578 | google.golang.org/grpc/internal/transport | CVSS 8.8 | High | no CVE assigned
+What: Incorrect authorization in the processing of xDS RBAC policies, together
+with HTTP/2 transport handling. Unsupported fields in policy matchers are
+mishandled, letting an attacker bypass authorization checks, trigger a denial of
+service through the rapid-reset mitigations, or panic a server with a crafted
+policy update. Snyk records the fix as 1.82.1.
+For cyber-dojo: the vulnerable copies are in containerd, containerd-shim-runc-v2
+and ctr, all vendoring v1.80.0. dockerd, docker-compose and docker-buildx vendor
+v1.82.1 and are patched. All three affected binaries serve or consume gRPC over
+local Unix sockets rather than a network listener, and cyber-dojo runs no xDS
+control plane, so no RBAC policy is evaluated at all. User code runs with
+--net=none and so cannot open a connection to any of them, let alone supply a
+policy update or an HTTP/2 stream.
+Verdict: Not exploitable. The RBAC path is never exercised, and the transport is
+not reachable from user code.

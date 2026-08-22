@@ -2,7 +2,7 @@
 # If this file contains only comments, then no vulnerabilities are ignored
 # but do not delete this file - it is needed for the live-snyk-scans repo workflows.
 #
-# Every entry below is a Go CVE in the docker/dind toolchain (containerd, ctr)
+# Every entry below is a Go CVE in the docker/dind toolchain (dockerd, containerd, ctr)
 # inherited from the base image. Each is assessed as not-exploitable in
 # cyber-dojo; see docs/vulns/ for the per-CVE analysis. Entries expire after 30 days so
 # the assessment is forced to be re-reviewed rather than ignored forever.
@@ -12,6 +12,34 @@ version: v1.25.0
 patch: {}
 
 ignore:
+  # CVE-2026-17106 | moby/go-archive | Score 7.1 | Not exploitable: only docker-buildx vendors the vulnerable v0.2.1; dockerd (v0.3.3) and docker-compose (v0.3.2) are patched, so docker pull is unaffected; buildx is a build-time CLI plugin runner never invokes
+  SNYK-GOLANG-GITHUBCOMMOBYGOARCHIVE-18958666:
+    - '*':
+        reason: Not exploitable in docker-base context; see docs/vulns/readme.txt
+        expires: 2026-09-21T00:00:00.000Z
+        created: 2026-08-22T00:00:00.000Z
+
+  # no CVE | grpc internal/transport | Score 8.8 | Not exploitable: vulnerable v1.80.0 is in containerd/shim/ctr, which serve gRPC over local Unix sockets; no xDS control plane runs so no RBAC policy is evaluated; user code has --net=none
+  SNYK-GOLANG-GOOGLEGOLANGORGGRPCINTERNALTRANSPORT-18172578:
+    - '*':
+        reason: Not exploitable in docker-base context; see docs/vulns/readme.txt
+        expires: 2026-09-21T00:00:00.000Z
+        created: 2026-08-22T00:00:00.000Z
+
+  # CVE-2026-10722 | cilium/ebpf/btf | Score 4.8 | Not exploitable: BTF is loaded from the host kernel and compiled-in programs, never from a sandboxed process; user code cannot load eBPF and the impact is local DoS only
+  SNYK-GOLANG-GITHUBCOMCILIUMEBPFBTF-17810931:
+    - '*':
+        reason: Not exploitable in docker-base context; see docs/vulns/readme.txt
+        expires: 2026-09-21T00:00:00.000Z
+        created: 2026-08-22T00:00:00.000Z
+
+  # no CVE | aws-sdk-go-v2 CloudWatch Logs EventStream | Score 8.2 | Not exploitable: DoS only; a crafted EventStream frame must arrive from the CloudWatch endpoint, which requires MITM of that TLS connection; user code runs with --net=none and cannot reach it
+  SNYK-GOLANG-GITHUBCOMAWSAWSSDKGOV2SERVICECLOUDWATCHLOGS-16316406:
+    - '*':
+        reason: Not exploitable in docker-base context; see docs/vulns/readme.txt
+        expires: 2026-09-21T00:00:00.000Z
+        created: 2026-06-15T00:00:00.000Z
+
   # CVE-2026-41178 | OTel propagation | Score 6.9 | Not exploitable: only containerd and ctr still vendor otel v1.43.0; containerd serves its API on a local Unix socket and ctr is a CLI, so no attacker-supplied header reaches the baggage parser
   SNYK-GOLANG-GOOPENTELEMETRYIOOTELPROPAGATION-17054905:
     - '*':
