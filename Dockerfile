@@ -1,4 +1,4 @@
-FROM docker:29.5.3-dind-alpine3.24@sha256:ad68e89b675740867a3bb96488a93fea9209ad36c6305bfba2664912d6dcf11a
+FROM docker:29.7.2-dind-alpine3.24@sha256:12e683a161823b2a839aeea999b9d960e6e1f9a97b1679ad6b441982e2d9cf07
 LABEL maintainer=jon@jaggersoft.com
 
 # - - - - - - - - - - - - - - - -
